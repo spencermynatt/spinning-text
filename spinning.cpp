@@ -139,7 +139,7 @@ int main()
                               //    0, 0, 0, 1 ]         1       1
 				//this happens third
 
-
+                  //glm::vec3 can be whatever location you want it to be
 		//transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));  //this just moves it, you don't need it to rotate something lol
 		// translation vector will mulitply to glm::vec3, its 3 because w is always 1
 		//move by how many points, for now it'll just be zero
