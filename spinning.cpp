@@ -141,7 +141,13 @@ int main()
 
 
 		transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
-		
+		// translation vector will mulitply to glm::vec3, its 3 because w is always 1
+		//move by how many points, for now it'll just be zero
+		//all three values will become 0.0f except  w
+	                        //[ 1, 0, 0,  0,         0.5f    =    (1 * 0.05) + (0 * -0.05) + (0 * 0.0f) + (0 * 1)  
+				//  0, 1, 0,  0,    *    -0.5f   =    (0 * 0.05) + (1 * -0.05) + (0 * 0.0f) + (0 * 1)  
+				//  0, 0, 1,  0,         0.0f    =    (0 * 0.05) + (0 * -0.05) + (1 * 0.0f) + (0 * 1)  
+                              //    0, 0, 0,  1 ]         1                           1
 		
 		transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
                
