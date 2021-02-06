@@ -129,10 +129,17 @@ int main()
 
 		//glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, texture);
-		glm::mat4 transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+		glm::mat4 transform = glm::mat4(1.0f); 
 		transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
+		
+		
 		transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
-
+               
+		//glfw get time is the amount of time since glfw was initilizied
+		//it will be saved into a float
+		//it will multiplied by a random number that increased or decreases
+		//the last function of glm roate decides which axis to rotate on
+		// 3 it will rototate around the x axis
 		// get matrix's uniform location and set matrix
 		glUseProgram(program);
 		unsigned int transformLoc = glGetUniformLocation(program, "transform");
