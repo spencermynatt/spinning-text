@@ -130,6 +130,16 @@ int main()
 		//glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, texture);
 		glm::mat4 transform = glm::mat4(1.0f); 
+		//define a mat4 and explicitly initialize it to the
+				// identity matrix by initializing the 
+				//matrix's diagonals to 1.0, everything else is zero
+				//[ 1, 0, 0, TX,         x       0
+				//  0, 1, 0, TY,    *    y       0
+				//  0, 0, 1, TZ,         z       0
+                              //    0, 0, 0, 1 ]         1       1
+				//this happens third
+
+
 		transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
 		
 		
