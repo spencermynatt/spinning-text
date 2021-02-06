@@ -17,7 +17,7 @@ const char* vertex_shader =
 "void main()\n"
 "{\n"
 "evt = textures;\n"
-"gl_Position = transform * vec4(position, 1.0);\n"
+"gl_Position = transform * vec4(position, 1.0);\n" //multiply our transform which is rotating as the same position, then set it as a uniform to use later
 "}\0";
 const char* fragment_shader =
 "#version 430 core\n"
@@ -159,8 +159,12 @@ int main()
 		// get matrix's uniform location and set matrix
 		glUseProgram(program);
 		unsigned int transformLoc = glGetUniformLocation(program, "transform");
+		//get location of transform and save it as a variable
 		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
-
+                 //transformloc is the variable
+		//1 is how many matrixs
+		//we're not transposing it so it's GL_FALSE
+		//and we're sending all our matrix rotation data to the sahder in this function
 		glBindVertexArray(VAO);
 
 		
