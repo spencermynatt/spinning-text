@@ -155,7 +155,7 @@ int main()
 		//it will be saved into a float
 		//it will multiplied by a random number that increased or decreases
 		//the last function of glm roate decides which axis to rotate on
-		// 3 it will rototate around the x axis
+		// 3 it will rototate around the z axis
 		// get matrix's uniform location and set matrix
 		glUseProgram(program);
 		unsigned int transformLoc = glGetUniformLocation(program, "transform");
