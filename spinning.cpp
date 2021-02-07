@@ -17,6 +17,7 @@ const char* vertex_shader =
 "void main()\n"
 "{\n"
 "evt = textures;\n"
+	//secondish step of the transformations
 "gl_Position = transform * vec4(position, 1.0);\n" //multiply our transform which is rotating as the same position, then set it as a uniform to use later
 "}\0";
 const char* fragment_shader =
