@@ -129,6 +129,7 @@ int main()
 
 		//glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, texture);
+		//THIRD STEP OF TRANSFORMING
 		glm::mat4 transform = glm::mat4(1.0f); 
 		//define a mat4 and explicitly initialize it to the
 				// identity matrix by initializing the 
@@ -138,7 +139,7 @@ int main()
 				//  0, 0, 1, TZ,         z       0
                               //    0, 0, 0, 1 ]         1       1
 				//this happens third
-
+ 
                   //glm::vec3 can be whatever location you want it to be
 		//transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));  //this just moves it, you don't need it to rotate something lol
 		// translation vector will mulitply to glm::vec3, its 3 because w is always 1
@@ -151,7 +152,7 @@ int main()
 				//  0, 1, 0,  0,    *   0.5f, -0.5f, 0.0f,     *   -0.5f   =                  our new position
 				//  0, 0, 1,  0,        -0.5f, -0.5f, 0.0f,         0.0f    =     
                               //    0, 0, 0,  1 ]        -0.5f,  0.5f, 0.0f,          1                           
-		
+		//FINAL STEP ROTATE OR TRANSLATE
 		transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
                
 		//glfw get time is the amount of time since glfw was initilizied
@@ -161,8 +162,12 @@ int main()
 		// 3 it will rototate around the z axis
 		// get matrix's uniform location and set matrix
 		glUseProgram(program);
+		
+		
+		//1. THIS IS THE FIRST STEP OF THE PROCESS OF TRANSFORMING
 		unsigned int transformLoc = glGetUniformLocation(program, "transform");
 		//get location of transform and save it as a variable
+		//SECOND STEP OF THE TRANSFORMING
 		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
                  //transformloc is the variable
 		//1 is how many matrixs
