@@ -167,11 +167,11 @@ int main()
 		
 		//rotation matrix on y axis
 		// [cos, 0, sin,  0            0.5f,  0.5f, 0.0f
-		//  0,   1,  0,   0   *        0.5f, -0.5f, 0.0f,
-		//  -sin, 0,  cos, 0           -0.5f, -0.5f, 0.0f,
-		//  0,   0,   0,  1]           -0.5f,  0.5f, 0.0f,
-		
-		
+		//  0,   1,  0,   0   *        0.5f, -0.5f, 0.0f,                          *     x
+		//  -sin, 0,  cos, 0           -0.5f, -0.5f, 0.0f,                               y
+		//  0,   0,   0,  1]           -0.5f,  0.5f, 0.0f,                               z
+	        //                                                                               1	
+		                                
 		//rotation matrix on z axis
 		// [cos, -sin, 0,  0            0.5f,  0.5f, 0.0f
 		//  sin, cos,  0,  0   *        0.5f, -0.5f, 0.0f,
