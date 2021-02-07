@@ -167,7 +167,13 @@ int main()
                  //transformloc is the variable
 		//1 is how many matrixs
 		//we're not transposing it so it's GL_FALSE
-		//and we're sending all our matrix rotation data to the sahder in this function
+		//and we're sending all our matrix rotation data to the vertex shader in this function
+		  //equation we need, the 1 is just the w
+		// transform * vec4(position, 1.0);
+		///[ 1, 0, 0,  0,        0.5f,  0.5f, 0.0f,
+		//  0, 1, 0,  0,    *   0.5f, -0.5f, 0.0f, 
+		//  0, 0, 1,  0,        -0.5f, -0.5f, 0.0f,
+		 //    0, 0, 0,  1 ]    -0.5f,  0.5f, 0.0f,
 		glBindVertexArray(VAO);
 
 		
