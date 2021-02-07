@@ -147,7 +147,7 @@ int main()
 		//all three values will become 0.0f except  w
 		
 		
-		                //transform matrix       triangle position        position we want
+		                //transform matrix       rectangle  position        position we want
 	                        //[ 1, 0, 0,  0,        0.5f,  0.5f, 0.0f,         0.5f    =     
 				//  0, 1, 0,  0,    *   0.5f, -0.5f, 0.0f,     *   -0.5f   =                  our new position
 				//  0, 0, 1,  0,        -0.5f, -0.5f, 0.0f,         0.0f    =     
@@ -155,6 +155,32 @@ int main()
 		//FINAL STEP ROTATE OR TRANSLATE
 		transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
                
+		
+		//rotation math
+		
+		//first part just gets the position
+		//rotation matrix on x axis
+		// [1,  0,    0,  0            0.5f,  0.5f, 0.0f
+		//  0, cos, -sin, 0   *        0.5f, -0.5f, 0.0f,
+		//  0  sin,  cos, 0           -0.5f, -0.5f, 0.0f,
+		//  0,   0,   0,  1]           -0.5f,  0.5f, 0.0f,
+		
+		//rotation matrix on y axis
+		// [cos, 0, sin,  0            0.5f,  0.5f, 0.0f
+		//  0,   1,  0,   0   *        0.5f, -0.5f, 0.0f,
+		//  -sin, 0,  cos, 0           -0.5f, -0.5f, 0.0f,
+		//  0,   0,   0,  1]           -0.5f,  0.5f, 0.0f,
+		
+		
+		//rotation matrix on z axis
+		// [cos, -sin, 0,  0            0.5f,  0.5f, 0.0f
+		//  sin, cos,  0,  0   *        0.5f, -0.5f, 0.0f,
+		//  0,    0,   1,  0           -0.5f, -0.5f, 0.0f,
+		//  0,    0,   0,  1]           -0.5f,  0.5f, 0.0f,
+		
+		
+		 
+	
 		//glfw get time is the amount of time since glfw was initilizied
 		//it will be saved into a float
 		//it will multiplied by a random number that increased or decreases
